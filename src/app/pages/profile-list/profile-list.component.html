@@ -1,0 +1,19 @@
+<div *ngIf="loading; else content">
+    Loading...
+  </div>
+  <ng-template #content>
+    <ul>
+      <li *ngFor="let profile of profiles">
+        <h2>{{ profile.firstName }} {{ profile.lastName }}</h2>
+        <p>Email: {{ profile.email }}</p>
+        <p>Phone: {{ profile.phoneNumber }}</p>
+        <p>Description: {{ profile.description }}</p>
+        <p>File: {{ profile.file }}</p>
+      </li>
+    </ul>
+    <div class="pagination">
+      <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+      <span>{{ currentPage }}</span>
+      <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+    </div>
+  </ng-template>
