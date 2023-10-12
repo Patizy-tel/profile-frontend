@@ -13,17 +13,11 @@ export class ProfileService  extends AlertService {
 
 
 
-  postContractingEntity(contracting: any) {
-    return this.apis.post('/contracting-entity', contracting);
+  postProfile(contracting: any) {
+    return this.apis.post('/profile', contracting);
   }
 
-  getAllContractingEntity() {
-    return this.apis.get('/contracting-entity');
-  }
-
-
-
-  getSingleContactingEntity(id: string) {
-    return this.apis.get(`/contracting-entity/single/${id}`);
+  getPaginatedProfile(currentPage:number) {
+    return this.apis.get(`/api/profiles?page=${currentPage}`);
   }
 }

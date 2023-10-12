@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ProfileService } from 'src/app/tools/services';
 
 @Component({
   selector: 'app-profile-list',
@@ -12,7 +13,7 @@ export class ProfileListComponent implements OnInit {
   currentPage: number = 1;
   totalPages: number = 1;
 
-  constructor(private http: HttpClient) {}
+  constructor(private profileService:ProfileService) {}
 
   ngOnInit(): void {
     this.getProfiles();
@@ -20,11 +21,11 @@ export class ProfileListComponent implements OnInit {
 
   getProfiles(): void {
     this.loading = true;
-    const url = '/api/profiles?page=' + this.currentPage;
-    this.http.get<any>(url).subscribe((response) => {
+    this.profileService.getPaginatedProfile(this.currentPage).subscribe((response:any) => {
+      console.log(response)
       this.loading = false;
-      this.profiles = response.profiles;
-      this.totalPages = response.totalPages;
+      this.profiles = response.content;
+      this.totalPages = response.total;
     });
   }
 

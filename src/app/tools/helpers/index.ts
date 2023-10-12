@@ -1,5 +1,4 @@
-export * from './auth.guard';
-export * from './role.guard';
+
 export * from './jwt.interceptor';
 export * from './loader.interceptor';
 export * from './error.interceptor';
