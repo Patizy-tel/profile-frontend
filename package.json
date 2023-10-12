@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "dev": "ng serve --open",
+    "start": "serve -s dist",
     "build": "ng build",
+    "dev": "ng serve --open",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "lint": "ng lint"
   },
   "private": true,
   "engines": {
@@ -26,6 +27,7 @@
     "moment": "^2.29.4",
     "notiflix": "^3.2.6",
     "rxjs": "~7.8.0",
+    "serve": "^14.2.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
   },
